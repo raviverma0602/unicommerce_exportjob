@@ -1,0 +1,23 @@
+{
+  "name": "Unicommerce/ExportJob",
+  "description": "Unicommerce_ExportJob",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Greenhonchos"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Unicommerce\\ExportJob\\": ""
+    }
+  }
+}

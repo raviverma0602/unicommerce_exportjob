@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="unicommerce_api_data" resource="default" engine="innodb" comment="Unicommerce Api Data">
+      <column xsi:type="int" name="entity_id" padding="10" unsigned="false" nullable="false" identity="true" comment="Entity Id" />
+      <column xsi:type="varchar" name="sale_order_item_code" nullable="false" length="25" comment="Sale Order Item Code" />
+      <column xsi:type="varchar" name="display_order_code" nullable="false" length="25" comment="Display Order Code" />
+      <column xsi:type="varchar" name="vendor_unit_price" nullable="false" length="25" comment="Vendor Unit Price" />
+      <column xsi:type="varchar" name="reverse_pickup_code" nullable="false" length="25" comment="Reverse Pickup Code" />
+      <column xsi:type="varchar" name="reverse_pickup_created_date" nullable="false" length="25" comment="Reverse Pickup Created Date" />
+      <column xsi:type="varchar" name="reverse_pickup_reason" nullable="false" length="25" comment="Reverse Pickup Reason" />
+      <column xsi:type="varchar" name="notification_email" nullable="false" length="255" comment="Notification Email" />
+      <column xsi:type="varchar" name="notification_mobile" nullable="false" length="25" comment="Notification Mobile" />
+      <column xsi:type="varchar" name="require_customization" nullable="false" length="25" comment="Require Customization" />
+      <column xsi:type="varchar" name="cod" nullable="false" length="25" comment="COD" />
+      <column xsi:type="varchar" name="shipping_address_id" nullable="false" length="255" comment="Shipping Address Id" />
+      <column xsi:type="varchar" name="category" nullable="false" length="25" comment="Category" />
+      <column xsi:type="varchar" name="invoice_code" nullable="false" length="25" comment="Invoice Code" />
+      <column xsi:type="varchar" name="invoice_created" nullable="false" length="25" comment="Invoice Created" />
+      <column xsi:type="varchar" name="ewaybill_no" nullable="false" length="25" comment="EWayBill No" />
+      <column xsi:type="varchar" name="ewaybill_date" nullable="false" length="25" comment="EWayBill Date" />
+      <column xsi:type="varchar" name="ewaybill_valid_till" nullable="false" length="25" comment="EWayBill Valid Till" />
+      <column xsi:type="varchar" name="shipping_address_name" nullable="false" length="25" comment="Shipping Address Name" />
+      <column xsi:type="varchar" name="shipping_address_line_1" nullable="false" length="25" comment="Shipping Address Line 1" />
+      <column xsi:type="varchar" name="shipping_address_line_2" nullable="false" length="25" comment="Shipping Address Line 2" />
+      <column xsi:type="varchar" name="shipping_address_city" nullable="false" length="25" comment="Shipping Address City" />
+      <column xsi:type="varchar" name="shipping_address_state" nullable="false" length="25" comment="Shipping Address State" />
+      <column xsi:type="varchar" name="shipping_address_country" nullable="false" length="25" comment="Shipping Address Country" />
+      <column xsi:type="varchar" name="shipping_address_pincode" nullable="false" length="25" comment="Shipping Address Pincode" />
+      <column xsi:type="varchar" name="shipping_address_phone" nullable="false" length="25" comment="Shipping Address Phone" />
+      <column xsi:type="varchar" name="billing_address_id" nullable="false" length="25" comment="Billing Address Id" />
+      <column xsi:type="varchar" name="billing_address_name" nullable="false" length="25" comment="Billing Address Name" />
+      <column xsi:type="varchar" name="billing_address_line_1" nullable="false" length="25" comment="Billing Address Line 1" />
+      <column xsi:type="varchar" name="billing_address_line_2" nullable="false" length="25" comment="Billing Address Line 2" />
+      <column xsi:type="varchar" name="billing_address_city" nullable="false" length="25" comment="Billing Address City" />
+      <column xsi:type="varchar" name="billing_address_state" nullable="false" length="25" comment="Billing Address State" />
+      <column xsi:type="varchar" name="billing_address_country" nullable="false" length="25" comment="Billing Address Country" />
+      <column xsi:type="varchar" name="billing_address_pincode" nullable="false" length="25" comment="Billing Address Pincode" />
+      <column xsi:type="varchar" name="billing_address_phone" nullable="false" length="25" comment="Billing Address Phone" />
+      <column xsi:type="varchar" name="shipping_method" nullable="false" length="25" comment="Shipping Method" />
+      <column xsi:type="varchar" name="item_sku_code" nullable="false" length="25" comment="Item SKU Code" />
+      <column xsi:type="varchar" name="channel_product_id" nullable="false" length="25" comment="Channel Product Id" />
+      <column xsi:type="varchar" name="item_type_name" nullable="false" length="25" comment="Item Type Name" />
+      <column xsi:type="varchar" name="item_type_color" nullable="false" length="25" comment="Item Type Color" />
+      <column xsi:type="varchar" name="item_type_size" nullable="false" length="25" comment="Item Type Size" />
+      <column xsi:type="varchar" name="item_ype_brand" nullable="false" length="25" comment="Item Type Brand" />
+      <column xsi:type="varchar" name="channel_name" nullable="false" length="25" comment="Channel Name" />
+      <column xsi:type="varchar" name="sku_require_customization" nullable="false" length="25" comment="SKU Require Customization" />
+      <column xsi:type="varchar" name="gift_wrap" nullable="false" length="25" comment="Gift Wrap" />
+      <column xsi:type="varchar" name="gift_message" nullable="false" length="25" comment="Gift Message" />
+      <column xsi:type="varchar" name="hsn_code" nullable="false" length="25" comment="HSN Code" />
+      <column xsi:type="varchar" name="mrp" nullable="false" length="25" comment="mrp" />
+      <column xsi:type="varchar" name="total_price" nullable="false" length="25" comment="Total Price" />
+      <column xsi:type="varchar" name="selling_price" nullable="false" length="25" comment="Selling Price" />
+      <column xsi:type="varchar" name="cost_price" nullable="false" length="25" comment="Cost Price" />
+      <column xsi:type="varchar" name="prepaid_amount" nullable="false" length="25" comment="Prepaid Amount" />
+      <column xsi:type="varchar" name="subtotal" nullable="false" length="25" comment="Subtotal" />
+      <column xsi:type="varchar" name="discount" nullable="false" length="25" comment="Discount" />
+      <column xsi:type="varchar" name="gst_tax_type_code" nullable="false" length="25" comment="GST Tax Type Code" />
+      <column xsi:type="varchar" name="cgst" nullable="false" length="25" comment="CGST" />
+      <column xsi:type="varchar" name="igst" nullable="false" length="25" comment="IGST" />
+      <column xsi:type="varchar" name="sgst" nullable="false" length="25" comment="SGST" />
+      <column xsi:type="varchar" name="utgst" nullable="false" length="25" comment="UTGST" />
+      <column xsi:type="varchar" name="cess" nullable="false" length="25" comment="CESS" />
+      <column xsi:type="varchar" name="cgst_rate" nullable="false" length="25" comment="CGST Rate" />
+      <column xsi:type="varchar" name="igst_rate" nullable="false" length="25" comment="IGST Rate" />
+      <column xsi:type="varchar" name="sgst_rate" nullable="false" length="25" comment="SGST Rate" />
+      <column xsi:type="varchar" name="utgst_rate" nullable="false" length="25" comment="UTGST Rate" />
+      <column xsi:type="varchar" name="cess_rate" nullable="false" length="25" comment="CESS Rate" />
+      <column xsi:type="varchar" name="tcs_amount" nullable="false" length="25" comment="TCS Amount" />
+      <column xsi:type="varchar" name="tax" nullable="false" length="25" comment="Tax" />
+      <column xsi:type="varchar" name="tax_value" nullable="false" length="25" comment="Tax Value" />
+      <column xsi:type="varchar" name="voucher_code" nullable="false" length="25" comment="Voucher Code" />
+      <column xsi:type="varchar" name="shipping_charges" nullable="false" length="25" comment="Shipping Charges" />
+      <column xsi:type="varchar" name="shipping_method_charges" nullable="false" length="25" comment="Shipping Method Charges" />
+      <column xsi:type="varchar" name="cod_service_charges" nullable="false" length="25" comment="COD Service Charges" />
+      <column xsi:type="varchar" name="gift_wrap_charges" nullable="false" length="25" comment="Gift Wrap Charges" />
+      <column xsi:type="varchar" name="packet_number" nullable="false" length="25" comment="Packet Number" />
+      <column xsi:type="varchar" name="order_date" nullable="false" length="25" comment="Order Date" />
+      <column xsi:type="varchar" name="sale_order_code" nullable="false" length="25" comment="Sale Order Code" />
+      <column xsi:type="varchar" name="on_hold" nullable="false" length="25" comment="On Hold" />
+      <column xsi:type="varchar" name="sale_order_status" nullable="false" length="25" comment="Sale Order Status" />
+      <column xsi:type="varchar" name="priority" nullable="false" length="25" comment="Priority" />
+      <column xsi:type="varchar" name="currency" nullable="false" length="25" comment="Currency" />
+      <column xsi:type="varchar" name="currency_conversion_rate" nullable="false" length="25" comment="Currency Conversion Rate" />
+      <column xsi:type="varchar" name="sale_order_item_status" nullable="false" length="25" comment="Sale Order Item Status" />
+      <column xsi:type="varchar" name="cancellation_reason" nullable="false" length="255" comment="Cancellation Reason" />
+      <column xsi:type="varchar" name="shipping_provider" nullable="false" length="25" comment="Shipping Provider" />
+      <column xsi:type="varchar" name="shipping_courier" nullable="false" length="25" comment="Shipping Courier" />
+      <column xsi:type="varchar" name="shipping_arranged_by" nullable="false" length="25" comment="Shipping Arranged By" />
+      <column xsi:type="varchar" name="shipping_package_code" nullable="false" length="25" comment="Shipping Package Code" />
+      <column xsi:type="varchar" name="shipping_package_creation_date" nullable="false" length="25" comment="Shipping Package Creation Date" />
+      <column xsi:type="varchar" name="shipping_package_status_code" nullable="false" length="25" comment="Shipping Package Status Code" />
+      <column xsi:type="varchar" name="shipping_package_type" nullable="false" length="25" comment="Shipping Package Type" />
+      <column xsi:type="varchar" name="length" nullable="false" length="25" comment="Length" />
+      <column xsi:type="varchar" name="width" nullable="false" length="25" comment="Width" />
+      <column xsi:type="varchar" name="height" nullable="false" length="25" comment="Height" />
+      <column xsi:type="varchar" name="delivery_time" nullable="false" length="25" comment="Delivery Time" />
+      <column xsi:type="varchar" name="tracking_number" nullable="false" length="25" comment="Tracking Number" />
+      <column xsi:type="varchar" name="dispatch_date" nullable="false" length="25" comment="Dispatch Date" />
+      <column xsi:type="varchar" name="facility" nullable="false" length="25" comment="Facility" />
+      <column xsi:type="varchar" name="return_date" nullable="false" length="25" comment="Return Date" />
+      <column xsi:type="varchar" name="return_reason" nullable="false" length="25" comment="Return Reason" />
+      <column xsi:type="varchar" name="created" nullable="false" length="25" comment="Created" />
+      <column xsi:type="varchar" name="updated" nullable="false" length="25" comment="Updated" />
+      <column xsi:type="varchar" name="combination_identifier" nullable="false" length="25" comment="Combination Identifier" />
+      <column xsi:type="varchar" name="combination_description" nullable="false" length="255" comment="Combination Description" />
+      <column xsi:type="varchar" name="transfer_price" nullable="false" length="25" comment="Transfer Price" />
+      <column xsi:type="varchar" name="item_code" nullable="false" length="25" comment="Item Code" />
+      <column xsi:type="varchar" name="imei" nullable="false" length="25" comment="IMEI" />
+      <column xsi:type="varchar" name="weight" nullable="false" length="25" comment="Weight" />
+      <column xsi:type="varchar" name="gstin" nullable="false" length="25" comment="GSTIN" />
+      <column xsi:type="varchar" name="customer_gstin" nullable="false" length="25" comment="Customer GSTIN" />
+      <column xsi:type="varchar" name="tin" nullable="false" length="25" comment="TIN" />
+      <column xsi:type="varchar" name="payment_instrument" nullable="false" length="25" comment="Payment Instrument" />
+      <column xsi:type="varchar" name="fulfillment_tat" nullable="false" length="25" comment="Fulfillment TAT" />
+      <column xsi:type="varchar" name="adjustment_in_selling_price" nullable="false" length="25" comment="Adjustment In Selling Price" />
+      <column xsi:type="varchar" name="adjustment_in_discount" nullable="false" length="25" comment="Adjustment In Discount" />
+      <column xsi:type="varchar" name="store_credit" nullable="false" length="25" comment="Store Credit" />
+      <column xsi:type="varchar" name="irn" nullable="false" length="25" comment="IRN" />
+      <column xsi:type="varchar" name="acknowledgement_number" nullable="false" length="25" comment="Acknowledgement Number" />
+      <column xsi:type="varchar" name="bundle_sku_code_number" nullable="false" length="25" comment="Bundle SKU Code Number" />
+      <column xsi:type="varchar" name="sku_name" nullable="false" length="25" comment="SKU Name" />
+      <column xsi:type="varchar" name="batch_code" nullable="false" length="25" comment="Batch Code" />
+      <column xsi:type="varchar" name="vendor_batch_number" nullable="false" length="25" comment="Vendor Batch Number" />
+      <column xsi:type="varchar" name="seller_sku_code" nullable="false" length="25" comment="Seller SKU Code" />
+      <column xsi:type="varchar" name="item_type_ean" nullable="false" length="25" comment="Item Type EAN" />
+      <column xsi:type="varchar" name="shipping_courier_status" nullable="false" length="25" comment="Shipping Courier Status" />
+      <column xsi:type="varchar" name="shipping_tracking_status" nullable="false" length="25" comment="Shipping Tracking Status" />
+      <column xsi:type="varchar" name="item_seal_id" nullable="false" length="25" comment="Item Seal Id" />
+      <column xsi:type="varchar" name="gst" nullable="false" length="25" comment="GST" />
+      <column xsi:type="varchar" name="channel_shipping" nullable="false" length="25" comment="Channel Shipping" />
+      <column xsi:type="varchar" name="item_details" nullable="false" length="25" comment="Item Details" />
+      <column name="created_at" nullable="false" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+      <column name="updated_at" nullable="true" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true"/>
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="entity_id" />
+      </constraint>
+   </table>
+</schema>

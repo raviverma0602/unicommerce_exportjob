@@ -1,0 +1,461 @@
+<?php
+namespace Unicommerce\ExportJob\Controller\Index;
+
+class ApiData extends \Magento\Framework\App\Action\Action
+{
+  protected $_pageFactory;
+
+  protected $orderFactory;
+
+  public function __construct(
+    \Magento\Framework\App\Action\Context $context,
+    \Magento\Framework\View\Result\PageFactory $pageFactory,
+    \Unicommerce\ExportJob\Model\OrderFactory $orderFactory
+
+  )
+  {
+    $this->_pageFactory = $pageFactory;
+    $this->orderFactory = $orderFactory;
+    return parent::__construct($context);
+  }
+
+  public function execute()
+  {
+
+    // $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    // $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+    // // print_r($storeManager);
+    // // echo "<br>";
+    // $baseMediaUrl = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+    // $basePath = $baseMediaUrl.'export25102023'.'.csv';
+
+    // $link = $this->getStatusJob();
+    // $csvData = file_get_contents($link);
+    // $rows = explode(PHP_EOL, $csvData);
+
+    // $csvDataArray = [];
+    // foreach ($rows as $row) {
+    //     $csvDataArray[] = str_getcsv($row);
+    //   // echo "<pre>";
+    //   // print_r($csvDataArray);die();
+    // }
+
+    // $categories = [];
+
+    // if (($handle = fopen($basePath, "r")) !== false) {
+    //     if (($data = fgetcsv($handle, 100000, ",")) !== false) {
+    //         $keys = $data;
+    //     }
+    //     while (($data = fgetcsv($handle, 100000, ",")) !== false) {
+    //         $categories[] = array_combine($keys, $data);
+    //     }
+    //     fclose($handle);
+    // }
+
+    // // foreach ($csvDataArray as $category) {
+    // foreach ($categories as $category) {
+
+    //   // echo "<pre>";
+    //   // print_r($category);die();
+    //   $model = $this->orderFactory->create();
+
+    //   $model->addData([
+    //       'sale_order_item_code' =>                 $category['Sale Order Item Code'],
+    //       'display_order_code' =>                   $category['Display Order Code'],
+    //       'reverse_pickup_code'=>                   $category['Reverse Pickup Code'],
+    //       'reverse_pickup_created_date'=>           $category['Reverse Pickup Created Date'],
+    //       'reverse_pickup_reason'=>                 $category['Reverse Pickup Reason'],
+    //       'notification_email'=>                    $category['Notification Email'],
+
+    //       'notification_mobile'=>                   $category['Notification Mobile'],
+    //       'require_customization'=>                 $category['Require Customization'],
+    //       'cod'=>                                   $category['COD'],
+    //       'shipping_address_id'=>                   $category['Shipping Address Id'],
+    //       'category'=>                              $category['Category'],
+    //       'invoice_code'=>                          $category['Invoice Code'],
+    //       'invoice_created'=>                       $category['Invoice Created'],
+    //       'ewaybill_no'=>                           $category['EWayBill No'],
+    //       'ewaybill_date'=>                         $category['EWayBill Date'],
+    //       'ewaybill_valid_till'=>                   $category['EWayBill Valid Till'],
+    //       'shipping_address_name'=>                 $category['Shipping Address Name'],
+    //       'shipping_address_line_1'=>               $category['Shipping Address Line 1'],
+    //       'shipping_address_line_2'=>               $category['Shipping Address Line 2'],
+    //       'shipping_address_city'=>                 $category['Shipping Address City'],
+    //       'shipping_address_state'=>                $category['Shipping Address State'],
+    //       'shipping_address_country'=>              $category['Shipping Address Country'],
+    //       'shipping_address_pincode'=>              $category['Shipping Address Pincode'],
+    //       'shipping_address_phone'=>                $category['Shipping Address Phone'],
+    //       'billing_address_id'=>                    $category['Billing Address Id'],
+    //       'billing_address_name'=>                  $category['Billing Address Name'],
+    //       'billing_address_line_1'=>                $category['Billing Address Line 1'],
+    //       'billing_address_line_2'=>                $category['Billing Address Line 2'],
+    //       'billing_address_city'=>                  $category['Billing Address City'],
+    //       'billing_address_state'=>                 $category['Billing Address State'],
+    //       'billing_address_country'=>               $category['Billing Address Country'],
+    //       'billing_address_pincode'=>               $category['Billing Address Pincode'],
+    //       'billing_address_phone'=>                 $category['Billing Address Phone'],
+    //       'shipping_method'=>                       $category['Shipping Method'],
+    //       'item_sku_code'=>                         $category['Item SKU Code'],
+    //       'channel_product_id'=>                    $category['Channel Product Id'],
+    //       'item_type_name'=>                        $category['Item Type Name'],
+    //       'item_type_color'=>                       $category['Item Type Color'],
+    //       'item_type_size'=>                        $category['Item Type Size'],
+    //       'item_ype_brand'=>                        $category['Item Type Brand'],
+    //       'channel_name'=>                          $category['Channel Name'],
+    //       'sku_require_customization'=>             $category['SKU Require Customization'],
+    //       'gift_wrap'=>                             $category['Gift Wrap'],
+    //       'gift_message'=>                          $category['Gift Message'],
+    //       'hsn_code'=>                              $category['HSN Code'],
+    //       'mrp'=>                                   $category['MRP'],
+    //       'total_price'=>                           $category['Total Price'],
+    //       'selling_price'=>                         $category['Selling Price'],
+    //       'cost_price'=>                            $category['Cost Price'],
+    //       'prepaid_amount'=>                        $category['Prepaid Amount'],
+    //       'subtotal'=>                              $category['Subtotal'],
+    //       'discount'=>                              $category['Discount'],
+    //       'gst_tax_type_code'=>                     $category['GST Tax Type Code'],
+    //       'cgst'=>                                  $category['CGST'],
+    //       'igst'=>                                  $category['IGST'],
+    //       'sgst'=>                                  $category['SGST'],
+    //       'utgst'=>                                 $category['UTGST'],
+    //       'cess'=>                                  $category['CESS'],
+    //       'cgst_rate'=>                             $category['CGST Rate'],
+    //       'igst rate'=>                             $category['IGST Rate'],
+    //       'sgst_rate'=>                             $category['SGST Rate'],
+    //       'utgst_rate'=>                            $category['UTGST Rate'],
+    //       'cess_rate'=>                             $category['CESS Rate'],
+    //       'tcs_amount'=>                            $category['TCS Amount'],
+    //       'tax'=>                                   $category['Tax %'],
+    //       'tax_value'=>                             $category['Tax Value'],
+    //       'voucher_code'=>                          $category['Voucher Code'],
+    //       'shipping_charges'=>                      $category['Shipping Charges'],
+    //       'shipping_method_charges'=>               $category['Shipping Method Charges'],
+    //       'cod_service_charges'=>                   $category['COD Service Charges'],
+    //       'gift_wrap_charges'=>                     $category['Gift Wrap Charges'],
+    //       'packet_number'=>                         $category['Packet Number'],
+    //       'order_date'=>                            $category['Order Date as dd/mm/yyyy hh:MM:ss'],
+    //       'sale_order_code'=>                       $category['Sale Order Code'],
+    //       'on_hold'=>                               $category['On Hold'],
+    //       'sale_order_status'=>                     $category['Sale Order Status'],
+    //       'priority'=>                              $category['Priority'],
+    //       'currency'=>                              $category['Currency'],
+    //       'currency_conversion_rate'=>              $category['Currency Conversion Rate'],
+    //       'sale_order_item_status'=>                $category['Sale Order Item Status'],
+    //       'cancellation_reason'=>                   $category['Cancellation Reason'],
+    //       'shipping_provider'=>                     $category['Shipping provider'],
+    //       'shipping_courier'=>                      $category['Shipping Courier'],
+    //       'shipping_arranged_by'=>                  $category['Shipping Arranged By'],
+    //       'shipping_package_code'=>                 $category['Shipping Package Code'],
+    //       'shipping_package_creation_date'=>        $category['Shipping Package Creation Date'],
+    //       'shipping_package_status_code'=>          $category['Shipping Package Status Code'],
+    //       'shipping_package_type'=>                 $category['Shipping Package Type'],
+    //       'length'=>                                $category['Length(mm)'],
+    //       'width'=>                                 $category['Width(mm)'],
+    //       'height'=>                                $category['Height(mm)'],
+    //       'delivery_time'=>                         $category['Delivery Time'],
+    //       'tracking_number'=>                       $category['Tracking Number'],
+    //       'dispatch_date'=>                         $category['Dispatch Date'],
+    //       'facility'=>                              $category['Facility'],
+    //       'return_date'=>                           $category['Return Date'],
+    //       'return_reason'=>                         $category['Return Reason'],
+    //       'created'=>                               $category['Created'],
+    //       'updated'=>                               $category['Updated'],
+    //       'combination_identifier'=>                $category['Combination Identifier'],
+    //       'combination_description'=>               $category['Combination Description'],
+    //       'transfer_price'=>                        $category['Transfer Price'],
+    //       'item_code'=>                             $category['Item Code'],
+    //       'imei'=>                                  $category['IMEI'],
+    //       'weight'=>                                $category['Weight'],
+    //       'gstin'=>                                 $category['GSTIN'],
+    //       'customer_gstin'=>                        $category['Customer GSTIN'],
+    //       'tin'=>                                   $category['TIN'],
+    //       'payment_instrument'=>                    $category['Payment Instrument'],
+    //       'fulfillment_tat'=>                       $category['Fulfillment TAT'],
+    //       'adjustment_in_selling_price'=>           $category['Adjustment In Selling Price'],
+    //       'adjustment_in_discount'=>                $category['Adjustment In Discount'],
+    //       'store_credit'=>                          $category['Store Credit'],
+    //       'irn'=>                                   $category['IRN'],
+    //       'acknowledgement_number'=>                $category['Acknowledgement Number'],
+    //       'bundle_sku_code_number'=>                $category['Bundle SKU Code Number'],
+    //       'sku_name'=>                              $category['SKU Name'],
+    //       'batch_code'=>                            $category['Batch Code'],
+    //       'vendor_batch_number'=>                   $category['Vendor Batch Number'],
+    //       'seller_sku_code'=>                       $category['Seller SKU Code'],
+    //       'item_type_ean'=>                         $category['Item Type EAN'],
+    //       'shipping_courier_status'=>               $category['Shipping Courier Status'],
+    //       'shipping_tracking_status'=>              $category['Shipping Tracking Status'],
+    //       'item_seal_id'=>                          $category['Item Seal Id'],
+    //       'gst'=>                                   $category['GST'],
+    //       'channel_shipping'=>                      $category['Channel Shipping'],
+    //       'item_details'=>                          $category['Item Details'],
+    //       ]);
+          
+    //       // echo "<pre>";
+    //       // print_r($model->getData());die();
+    //       $saveData = $model->save();
+    // }
+    // die();
+
+    echo 'status job '.$this->getStatusJob();
+    $link = $this->getStatusJob();
+    // $link = $this->getStatusJob();
+    echo "<br>";
+
+    $csvData = file_get_contents($link);
+
+    $rows = explode(PHP_EOL, $csvData);
+
+    // echo "<pre>";
+    // print_r($rows);die();
+
+    $csvDataArray = [];
+    foreach ($rows as $row) {
+        $csvDataArray[] = str_getcsv($row);
+      echo "<pre>";
+      print_r($csvDataArray);die();
+    }
+
+    foreach ($csvDataArray as $data) {
+
+      // echo "<pre>";
+      // print_r($data);die();
+      $model = $this->orderFactory->create();
+
+      $model->addData([
+          'sale_order_item_code' =>                 $data[0],
+          'display_order_code' =>                   $data[1],
+          'reverse_pickup_code'=>                   $data[2],
+          'reverse_pickup_created_date'=>           $data[3],
+          'reverse_pickup_reason'=>                 $data[4],
+          'notification_email'=>                    $data[5],
+          'notification_mobile'=>                   $data[6],
+          'require_customization'=>                 $data[7],
+          'cod'=>                                   $data[8],
+          'shipping_address_id'=>                   $data[9],
+          'category'=>                              $data[10],
+          'invoice_code'=>                          $data[11],
+          'invoice_created'=>                       $data[12],
+          'ewaybill_no'=>                           $data[13],
+          'ewaybill_date'=>                         $data[14],
+          'ewaybill_valid_till'=>                   $data[15],
+          'shipping_address_name'=>                 $data[16],
+          'shipping_address_line_1'=>               $data[17],
+          'shipping_address_line_2'=>               $data[18],
+          'shipping_address_city'=>                 $data[19],
+          'shipping_address_state'=>                $data[20],
+          'shipping_address_country'=>              $data[21],
+          'shipping_address_pincode'=>              $data[22],
+          'shipping_address_phone'=>                $data[23],
+          'billing_address_id'=>                    $data[24],
+          'billing_address_name'=>                  $data[25],
+          'billing_address_line_1'=>                $data[26],
+          'billing_address_line_2'=>                $data[27],
+          'billing_address_city'=>                  $data[28],
+          'billing_address_state'=>                 $data[29],
+          'billing_address_country'=>               $data[30],
+          'billing_address_pincode'=>               $data[31],
+          'billing_address_phone'=>                 $data[32],
+          'shipping_method'=>                       $data[33],
+          'item_sku_code'=>                         $data[34],
+          'channel_product_id'=>                    $data[35],
+          'item_type_name'=>                        $data[36],
+          'item_type_color'=>                       $data[37],
+          'item_type_size'=>                        $data[38],
+          'item_ype_brand'=>                        $data[39],
+          'channel_name'=>                          $data[40],
+          'sku_require_customization'=>             $data[41],
+          'gift_wrap'=>                             $data[42],
+          'gift_message'=>                          $data[43],
+          'hsn_code'=>                              $data[44],
+          'mrp'=>                                   $data[45],
+          'total_price'=>                           $data[46],
+          'selling_price'=>                         $data[47],
+          'cost_price'=>                            $data[48],
+          'prepaid_amount'=>                        $data[49],
+          'subtotal'=>                              $data[50],
+          'discount'=>                              $data[51],
+          'gst_tax_type_code'=>                     $data[52],
+          'cgst'=>                                  $data[53],
+          'igst'=>                                  $data[54],
+          'sgst'=>                                  $data[55],
+          'utgst'=>                                 $data[56],
+          'cess'=>                                  $data[57],
+          'cgst_rate'=>                             $data[58],
+          'igst rate'=>                             $data[59],
+          'sgst_rate'=>                             $data[60],
+          'utgst_rate'=>                            $data[61],
+          'cess_rate'=>                             $data[62],
+          'tcs_amount'=>                            $data[63],
+          'tax'=>                                   $data[64],
+          'tax_value'=>                             $data[65],
+          'voucher_code'=>                          $data[66],
+          'shipping_charges'=>                      $data[67],
+          'shipping_method_charges'=>               $data[68],
+          'cod_service_charges'=>                   $data[69],
+          'gift_wrap_charges'=>                     $data[70],
+          'packet_number'=>                         $data[71],
+          'order_date'=>                            $data[72],
+          'sale_order_code'=>                       $data[73],
+          'on_hold'=>                               $data[74],
+          'sale_order_status'=>                     $data[75],
+          'priority'=>                              $data[76],
+          'currency'=>                              $data[77],
+          'currency_conversion_rate'=>              $data[78],
+          'sale_order_item_status'=>                $data[79],
+          'cancellation_reason'=>                   $data[80],
+          'shipping_provider'=>                     $data[81],
+          'shipping_courier'=>                      $data[82],
+          'shipping_arranged_by'=>                  $data[83],
+          'shipping_package_code'=>                 $data[84],
+          'shipping_package_creation_date'=>        $data[85],
+          'shipping_package_status_code'=>          $data[86],
+          'shipping_package_type'=>                 $data[87],
+          'length'=>                                $data[88],
+          'width'=>                                 $data[89],
+          'height'=>                                $data[90],
+          'delivery_time'=>                         $data[91],
+          'tracking_number'=>                       $data[92],
+          'dispatch_date'=>                         $data[93],
+          'facility'=>                              $data[94],
+          'return_date'=>                           $data[95],
+          'return_reason'=>                         $data[96],
+          'created'=>                               $data[97],
+          'updated'=>                               $data[98],
+          'combination_identifier'=>                $data[99],
+          'combination_description'=>               $data[100],
+          'transfer_price'=>                        $data[101],
+          'item_code'=>                             $data[102],
+          'imei'=>                                  $data[103],
+          'weight'=>                                $data[104],
+          'gstin'=>                                 $data[105],
+          'customer_gstin'=>                        $data[106],
+          'tin'=>                                   $data[107],
+          'payment_instrument'=>                    $data[108],
+          'fulfillment_tat'=>                       $data[109],
+          'adjustment_in_selling_price'=>           $data[110],
+          'adjustment_in_discount'=>                $data[111],
+          'store_credit'=>                          $data[112],
+          'irn'=>                                   $data[113],
+          'acknowledgement_number'=>                $data[114],
+          'bundle_sku_code_number'=>                $data[115],
+          'sku_name'=>                              $data[116],
+          'batch_code'=>                            $data[117],
+          'vendor_batch_number'=>                   $data[118],
+          'seller_sku_code'=>                       $data[119],
+          'item_type_ean'=>                         $data[120],
+          'shipping_courier_status'=>               $data[121],
+          'shipping_tracking_status'=>              $data[122],
+          'item_seal_id'=>                          $data[123],
+          'gst'=>                                   $data[124],
+          'channel_shipping'=>                      $data[125],
+          'item_details'=>                          $data[126],
+          ]);
+          
+          echo "<pre>";
+          print_r($model->getData());die();
+          $saveData = $model->save();
+        
+          if($saveData){
+              $this->messageManager->addSuccess( __('Insert Record Successfully !') );
+          }
+}
+
+  }
+
+  public function getBearerToken()
+  {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://nanostuffs.unicommerce.com/oauth/token?grant_type=password&client_id=my-trusted-client&username=tabish.khan%40unicommerce.com&password=Tabish%40123',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+          'Cookie: unicommerce=app3'
+      ),
+    ));
+
+    $result = curl_exec($curl);
+    $data = json_decode($result);
+    return $data->access_token;
+  }
+
+  public function getCreateJob(){
+    $bearerToken = $this->getBearerToken();
+
+    // print_r($bearerToken);die('dfghjkl');
+
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://nanostuffs.unicommerce.com/services/rest/v1/export/job/create',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS =>'{"exportJobTypeName":"Sale Orders","exportColums":["soicode","displayorderCode","reversePickupCode","reversePickupCreatedDate","reversePickupReason","notificationEmail","notificationMobile","requireCustomization","cod","shippingAddressId","category","invoiceCode","invoiceCreated","ewbNo","ewbDate","ewbValidTill","shippingAddressName","shippingAddressLine1","shippingAddressLine2","shippingAddressCity","shippingAddressState","shippingAddressCountry","shippingAddressPincode","shippingAddressPhone","billingAddressId","billingAddressName","billingAddressLine1","billingAddressLine2","billingAddressCity","billingAddressState","billingAddressCountry","billingAddressPincode","billingAddressPhone","shippingMethod","skuCode","channelProductId","itemTypeName","itemTypeColor","itemTypeSize","itemTypeBrand","channel","itemRequireCustomization","giftWrap","giftMessage","hsnCode","maxRetailPrice","totalPrice","sellingPrice","costPrice","prepaidAmount","subtotal","discount","gstTaxTypeCode","cgst","igst","sgst","utgst","cess","cgstrate","igstrate","sgstrate","utgstrate","cessrate","TCSAmount","tax","taxValue","voucherCode","shippingCharges","shippingMethodCharges","cashOnDeliveryCharges","giftWrapCharges","packetNumber","displayOrderDateTime","saleOrderCode","onhold","status","priority","currency","currencyConversionRate","SoiStatus","cancellationReason","shippingProvider","shippingCourier","shippingArrangedBy","ShippingPackageCode","ShippingPackageCreationDate","shippingPackageStatusCode","shippingPackageTypeCode","shippingPackageLength","shippingPackageWidth","shippingPackageHeight","deliveryTime","TrackingNumber","dispatchDate","facility","returnedDate","returnReason","created","updated","combinationIdentifier","combinationDescription","transferPrice","itemCode","imei","actualWeight","gsttin","Cgsttin","tin","paymentInstrc","fulfillmentTat","ajustmentInSellingPrice","ajustmentInDiscount","storeCredit","irn","acknowledgementNumber","bundleSkuCode","skuName","batchCode","vendorBatchNumber","sellerSkuCode","itemTypeEAN","shippingCourierStatus","shippingTrackingStatus","itemSealId","saleOrderCustomFields_GST"],"exportFilters":[{"id":"addedOn","dateRange":{"textRange":"YESTERDAY"}}],"frequency":"ONETIME"}',
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        'Authorization: Bearer '.$bearerToken.'',
+        'Facility: Vison',
+        'Cookie: unicommerce=app3; JSESSIONID=9B10DD967915E5BD308F1DA6CDDDFD5E; unicommerce=app1'
+      ),
+    ));
+
+    $result = curl_exec($curl);
+    $data = json_decode($result);
+    $jobCreate = $data->jobCode;
+    return $jobCreate;
+  }
+
+  public function getStatusJob()
+  {
+    $bearerToken = $this->getBearerToken();
+
+    $createJob = $this->getCreateJob();
+
+    // print_r($createJob);die('dfghjkl');
+
+    // $newData = '{
+    //    "jobCode": "6539f46179c28d5b1d80a97e-d5ce73f5c226eba22d0abdf9a519ec68"
+    // }';
+
+    $jsonData = json_encode(
+      array(
+        "jobCode" => $createJob
+    ));
+    sleep(10);
+    //print_r($jsonData);die();
+
+    $curls = curl_init();
+    curl_setopt_array($curls, array(
+      CURLOPT_URL => 'https://nanostuffs.unicommerce.com/services/rest/v1/export/job/status',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => $jsonData,
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        'Authorization: Bearer '.$bearerToken
+      ),
+    ));
+
+    $response = curl_exec($curls);
+    $data = json_decode($response);
+    return $data->filePath;
+  }
+
+
+}
